@@ -1,4 +1,6 @@
 ## Architecture (Text view)
+
+```text
 +--------------------+   +--------------------+   +--------------------+
 | Vendor Risk Data   |-->| Automation Rules   |-->| Exec Oversight     |
 | (API)              |   | (Governance)       |   | (Power BI)         |
@@ -15,3 +17,4 @@
                     | Staged Extract     |
                     | (CSV snapshot)     |
                     +--------------------+
+
