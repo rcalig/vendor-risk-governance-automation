@@ -1,3 +1,10 @@
+## How to read this repository
+
+For a quick overview:
+1. Review the architecture diagram
+2. Read the governance design decisions
+3. Skim the automation and reporting patterns
+
 # Vendor Risk Governance Automation for Executive Oversight
 
 This repository documents an approach to operationalising vendor risk governance
