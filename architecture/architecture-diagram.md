@@ -1,9 +1,33 @@
 ## Architecture at a glance
 
-| Stage | Purpose | Key Logic |
-|------|--------|-----------|
-| Vendor Risk Governance Data | Source of truth for vendor state | Inventory, tier, assessment status, reassessment start date |
-| Automation (Governance Rules) | Enforces cadence and discipline | Timezone handling, tier-based rules, exception aggregation |
-| Staged Extract (CSV) | Traceable reporting input | Point-in-time snapshot, re-runnable |
-| Executive Oversight (Power BI) | Decision support | Starting today, overdue, exceptions |
-| Notification (Conditional) | Operational prompt | Summary sent only if action is required |
+Vendor Risk Governance Data (API)
+- Vendor inventory
+- Risk tier
+- Assessment status
+- Reassessment start date
+(no evidence / no scores)
+        |
+        v
+Automation – Governance Rules
+- Date normalisation (timezone)
+- Reassessment cadence by tier
+- Start date = today
+- Exception aggregation
+[policy enforced here]
+        |
+        |--(conditional)--> Email / Notification
+        |                   (summary only, sent if count > 0)
+        |
+        v
+Staged Extract (CSV)
+- Point-in-time snapshot
+- Traceable
+- Re-runnable
+        |
+        v
+Executive Oversight (Power BI)
+- Starting today
+- Overdue
+- Exceptions
+Oversight ≠ Operations
+
