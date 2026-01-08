@@ -1,32 +1,22 @@
 ## Architecture (Text view)
-
-+----------------------------+     +-----------------------------+     +--------------------------+
-| Vendor Risk Governance     | --> | Automation                  | --> | Executive Oversight       |
-| Data (API)                 |     | (Governance Rules)          |     | (Power BI)               |
-|                            |     |                             |     |                          |
-| Inventory                  |     | - Date normalisation        |     | - Starting today         |
-| Tier                        |     | - Cadence by tier           |     | - Overdue                |
-| Assessment status           |     | - Start date = today        |     | - Exceptions             |
-| Reassessment start date     |     | - Exception aggregation    |     |                          |
-|                            |     | [policy enforced here]     |     | Oversight ≠ Operations   |
-+----------------------------+     +--------------+--------------+     +--------------------------+
-                                              |
-                                              v
-                               +-----------------------------+
-                               | Notification (summary)      |
-                               | sent only if action needed  |
-                               +-----------------------------+
-
-                               +-----------------------------+
-                               | Staged Extract (CSV)        |
-                               | point-in-time, traceable    |
-                               +-----------------------------+
-
-                     +-----------------------------------+
-                     | Staged Extract (CSV)              |
-                     |                                   |
-                     | - Point-in-time snapshot          |
-                     | - Traceable                       |
-                     | - Re-runnable                     |
-                     +-----------------------------------+
-
++----------------------+   +----------------------+   +----------------------+
+| Vendor Risk Data     |-->| Automation Rules     |-->| Executive Oversight  |
+| (API)                |   |                      |   | (Power BI)           |
+|                      |   | - Date normalisation |   |                      |
+| - Inventory          |   | - Cadence by tier    |   | - Starting today     |
+| - Risk tier          |   | - Start = today      |   | - Overdue            |
+| - Status             |   | - Exception logic    |   | - Exceptions         |
+| - Reassess start     |   |                      |   |                      |
++----------------------+   +----------+-----------+   +----------------------+
+                                     |
+                                     v
+                          +----------------------+
+                          | Notification         |
+                          | (summary only)       |
+                          +----------------------+
+                                     |
+                                     v
+                          +----------------------+
+                          | Staged Extract (CSV) |
+                          | Point-in-time        |
+                          +----------------------+
