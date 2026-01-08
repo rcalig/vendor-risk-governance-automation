@@ -7,8 +7,6 @@ without generating unnecessary execution noise.
 
 ## Data Retrieval
 
-## Data Retrieval
-
 Only governance-relevant attributes are retrieved, including:
 - Vendor identifier and name
 - Risk tier
