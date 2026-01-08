@@ -1,48 +1,33 @@
-┌──────────────────────────────┐
-│  Vendor Risk Governance Data │
-│            (API)             │
-│                              │
-│  - Vendor inventory          │
-│  - Risk tier                 │
-│  - Assessment status         │
-│  - Reassessment start date   │
-└───────────────┬──────────────┘
-                │
-                ▼
-┌────────────────────────────────────────┐
-│        Automation (Governance Rules)   │
-│                                        │
-│  - Date normalisation (timezone)       │
-│  - Reassessment cadence by tier        │
-│  - Start date = today check            │
-│  - Exception aggregation               │
-│                                        │
-│            [policy enforced here]      │
-└───────────────┬──────────────┬─────────┘
-                │              │
-                │              │  (conditional)
-                │              ▼
-                │     ┌──────────────────────┐
-                │     │  Email / Notification│
-                │     │     (summary only)   │
-                │     │   sent if count > 0  │
-                │     └──────────────────────┘
-                │
-                ▼
-┌──────────────────────────────┐
-│   Staged Extract (CSV)       │
-│   - Point-in-time snapshot   │
-│   - Traceable / re-runnable  │
-└───────────────┬──────────────┘
-                │
-                ▼
-┌──────────────────────────────┐
-│     Executive Oversight      │
-│         (Power BI)           │
-│                              │
-│  - Starting today            │
-│  - Overdue                   │
-│  - Exceptions                │
-│                              │
-│     Oversight ≠ Operations   │
-└──────────────────────────────┘
+Vendor Risk Governance Data (API)
+--------------------------------
+- Vendor inventory
+- Risk tier
+- Assessment status
+- Reassessment start date
+(no evidence / no scores)
+            |
+            v
+Automation (Governance Rules)
+-----------------------------
+- Date normalisation (timezone)
+- Reassessment cadence by tier
+- Start date = today
+- Exception aggregation
+[policy enforced here]
+            |
+            +--------------------+
+            |                    |
+            v                    v
+Staged Extract (CSV)      Email / Notification
+-------------------       --------------------
+- Point-in-time snapshot  (summary only)
+- Traceable               sent if count > 0
+- Re-runnable
+            |
+            v
+Executive Oversight (Power BI)
+------------------------------
+- Starting today
+- Overdue
+- Exceptions
+Oversight ≠ Operations
