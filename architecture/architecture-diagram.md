@@ -44,5 +44,5 @@
 │  - Overdue                   │
 │  - Exceptions                │
 │                              │
-│                              │
+│     Oversight ≠ Operations   │
 └──────────────────────────────┘
